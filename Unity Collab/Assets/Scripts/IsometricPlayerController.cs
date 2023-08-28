@@ -5,6 +5,7 @@ using UnityEngine;
 public class IsometricPlayerController : MonoBehaviour
 {
     public float movementSpeed = 3f;
+    IsometricCharacterRenderer isoRenderer;
 
     Rigidbody2D rbody;
 
@@ -12,6 +13,7 @@ public class IsometricPlayerController : MonoBehaviour
     private void Awake()
     {
         rbody = GetComponent<Rigidbody2D>();
+        isoRenderer = GetComponentInChildren<IsometricCharacterRenderer>();
     }
 
     // Update is called once per frame
@@ -28,6 +30,7 @@ public class IsometricPlayerController : MonoBehaviour
         Vector2 movement = inputVector * movementSpeed;
         Vector2 newPos = currentPos + movement * Time.fixedDeltaTime;
 
+        isoRenderer.SetDirection(movement);
         rbody.MovePosition(newPos);
     }
 }
