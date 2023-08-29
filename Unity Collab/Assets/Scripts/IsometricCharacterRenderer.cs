@@ -10,7 +10,9 @@ public class IsometricCharacterRenderer : MonoBehaviour
     public static readonly string[] attackDirections = {"Attack N", "Attack NW", "Attack W", "Attack SW", "Attack S", "Attack SE", "Attack E", "Attack NE"};
 
     Animator animator;
+    IsometricPlayerCombat combat;
     int lastDirection;
+
     // Start is called before the first frame update
     private void Awake()
     {
@@ -21,12 +23,14 @@ public class IsometricCharacterRenderer : MonoBehaviour
     {
         string[] directionArray = null;
 
-        if (direction.magnitude < .01f) 
-        {
+        if (direction.magnitude < .01f) {
             directionArray = staticDirections;
         }
-        else
-        {
+        //else if (combat.isAttacking == true) {
+        //    directionArray = attackDirections;
+        //    lastDirection = DirectionToIndex(direction, 8);
+        //}
+        else {
             directionArray = runDirections;
             lastDirection = DirectionToIndex(direction, 8);
         }

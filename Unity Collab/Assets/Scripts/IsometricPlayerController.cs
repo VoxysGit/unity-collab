@@ -6,9 +6,8 @@ public class IsometricPlayerController : MonoBehaviour
 {
     public float movementSpeed = 3f;
     IsometricCharacterRenderer isoRenderer;
-
     Rigidbody2D rbody;
-
+    
     // Start is called before the first frame update
     private void Awake()
     {
